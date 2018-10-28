@@ -1,81 +1,88 @@
 def add_rnn_opt(parser):
-    parser.add_argument('-num_units', type=int, default=64,
+    group = parser.add_argument_group('rnn')
+
+    group.add_argument('-num_units', type=int, default=64,
                         help="rnn cell hidden size")
 
-    parser.add_argument('-layer_num', type=int, default=1,
-                        help="rnn cell hidden size")
+    group.add_argument('-layer_num', type=int, default=1,
+                        help="rnn layer number")
 
-    parser.add_argument('-cell_type', type=str, default='gru',
-                        help="rnn cell hidden size")
+    group.add_argument('-cell_type', type=str, default='gru',
+                        help="rnn cell type, gru or lstm")
 
-    parser.add_argument('-bidirectional', action='store_true',
-                        help='')
+    group.add_argument('-bidirectional', action='store_true',
+                        help='use bidirectional')
+
+def add_cnn_opt(parser):
+    group = parser.add_argument_group('cnn')
+
+    group.add_argument('-filter_num', type=int, default=128,
+                        help="cnn filter num")
+
+    group.add_argument('-kernel_sizes', type=int, nargs='+', default=[5],
+                        help="cnn kernel_sizes, a list of int")
+
 
 def add_nn_opt(parser):
+    group = parser.add_argument_group('nn')
 
-    parser.add_argument('-model', type=str, default='Fasttext',
-                        help="rnn cell hidden size")
+    group.add_argument('-model', type=str, default='Fasttext',
+                        help="use model, fasttext, textrnn or textcnn")
 
-    parser.add_argument('-embedding_size', type=int, default=128,
-                        help="rnn cell hidden size")
+    group.add_argument('-embedding_size', type=int, default=128,
+                        help="embedding size")
 
-    parser.add_argument('-vocab_size', type=int, default=5000,
-                        help="rnn cell hidden size")
+    group.add_argument('-vocab_size', type=int, default=5000,
+                        help="vocab size")
 
-    parser.add_argument('-embedding_path', type=str, default=None,
-                        help="rnn cell hidden size")
+    group.add_argument('-embedding_path', type=str, default=None,
+                        help="embedding path, 暂不使用")
 
-    parser.add_argument('-input_keep_prob', type=float, default=1.0,
-                        help="rnn cell hidden size")
+    group.add_argument('-keep_drop_prob', type=float, default=0.5,
+                        help="keep_drop_prob")
 
-    parser.add_argument('-output_keep_prob', type=float, default=1.0,
-                        help="rnn cell hidden size")
-
-    parser.add_argument('-class_num', type=int, default=10,
-                        help="rnn cell hidden size")
+    group.add_argument('-class_num', type=int, default=10,
+                        help="class_num")
 
 def add_train_opt(parser):
-    parser.add_argument('-learning_rate', type=float, default=1e-3,
-                        help="rnn cell hidden size")
+    group = parser.add_argument_group('train')
 
-    parser.add_argument('-batch_size', type=float, default=64,
-                        help="rnn cell hidden size")
+    group.add_argument('-learning_rate', type=float, default=1e-3,
+                        help="learning_rate")
 
-    parser.add_argument('-epoch_num', type=int, default=20,
-                        help='')
+    group.add_argument('-batch_size', type=float, default=64,
+                        help="batch_size")
 
-    parser.add_argument('-print_every_step', type=int, default=100,
-                        help='')
+    group.add_argument('-epoch_num', type=int, default=10)
 
-    parser.add_argument('-tensorboard_dir', type=str, default='tensorboard',
-                        help='')
+    group.add_argument('-print_every_step', type=int, default=100)
 
-    parser.add_argument('-save_dir', type=str, default='save',
-                        help='')
+    group.add_argument('-save_path', type=str, default='save')
 
 
 
 def add_data_opt(parser):
-    parser.add_argument('-train_data', type=str, default='data/cnews/cnews.train.txt.seg',
-                        help="rnn cell hidden size")
+    group = parser.add_argument_group('data')
+    group.add_argument('-train_data', type=str, default='data/cnews/cnews.train.txt.seg',
+                        help="train data path")
 
-    parser.add_argument('-val_data', type=str, default='data/cnews/cnews.val.txt.seg',
-                        help="rnn cell hidden size")
+    group.add_argument('-val_data', type=str, default='data/cnews/cnews.val.txt.seg',
+                        help="val data path")
 
-    parser.add_argument('-test_data', type=str, default='data/cnews/cnews.test.txt.seg',
-                        help="rnn cell hidden size")
+    group.add_argument('-test_data', type=str, default='data/cnews/cnews.test.txt.seg',
+                        help="test data path")
 
-    parser.add_argument('-vocab_path', type=str, default='data/cnews/vocab.txt',
-                        help="rnn cell hidden size")
+    group.add_argument('-vocab_path', type=str, default='data/cnews/vocab.txt',
+                        help="vocab_pathe")
 
-    parser.add_argument('-label_path', type=str, default='data/cnews/label.txt',
-                        help="rnn cell hidden size")
+    group.add_argument('-label_path', type=str, default='data/cnews/label.txt',
+                        help="label_path")
 
-    parser.add_argument('-cut_length', type=int, default=600,
-                        help="rnn cell hidden size")
+    group.add_argument('-cut_length', type=int, default=600,
+                        help="cut_length")
 
-    parser.add_argument('-reverse', action='store_true',
-                        help="rnn cell hidden size")
+    group.add_argument('-reverse', action='store_true',
+                        help="reverse the sequence")
 
 
 

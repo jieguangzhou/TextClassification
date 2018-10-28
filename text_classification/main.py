@@ -6,6 +6,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     add_nn_opt(parser)
     add_rnn_opt(parser)
+    add_cnn_opt(parser)
     add_train_opt(parser)
     add_data_opt(parser)
     opt = parser.parse_args()

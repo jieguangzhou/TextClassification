@@ -3,7 +3,7 @@ import logging
 from random import shuffle
 import numpy as np
 
-from develop.IO import read_file, write_file
+from .develop.IO import read_file, write_file
 
 logger = logging.getLogger(__file__)
 logger.setLevel(logging.INFO)

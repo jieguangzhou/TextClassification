@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 data/
-
+save/
 .idea/
 
 jp_self*.ipynb
