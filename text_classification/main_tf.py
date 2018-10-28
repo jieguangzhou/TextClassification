@@ -13,7 +13,7 @@ from text_classification.models_tf.textcnn import TextCNN
 from text_classification.opt import *
 from text_classification.data import batch_iter, load_data
 
-message = 'step:{0:6}, train loss:{1:6.2}, train accuary:{2:7.2%}, val loss :{3:6.2}, val accuary:{4:7.2%}, cost:{5}'
+message = 'step:{0:6}, train loss:{1:6.2}, train accuarcy:{2:7.2%}, val loss :{3:6.2}, val accuary:{4:7.2%}, cost:{5}'
 
 
 def create_fasttext_model(vocab_size,
