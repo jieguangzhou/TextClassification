@@ -276,6 +276,8 @@ loss:  0.18, accuarcy: 95.07%, cost:0:00:36.260877
 
 #### 4 三个模型的训练结果图如下:
 
+​	下面为训练结果，其中红色为TextCNN，蓝色为TextRNN，橙色为Fasttext。
+
 ![train_result](https://github.com/jieguangzhou/TextClassification/blob/master/images/val_accuarcy.png)
 
 ![train_result](https://github.com/jieguangzhou/TextClassification/blob/master/images/val_loss.png)
