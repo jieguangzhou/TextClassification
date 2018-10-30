@@ -59,6 +59,15 @@ def add_train_opt(parser):
 
     group.add_argument('-save_path', type=str, default='save')
 
+    group.add_argument('-backend', type=str, default='tensorflow',
+                       help='tensorflow or torch')
+
+
+def add_server_opt(parser):
+    group = parser.add_argument_group('server')
+
+    group.add_argument('-port', type=int, default=9999,
+                        help="端口号")
 
 
 def add_data_opt(parser):

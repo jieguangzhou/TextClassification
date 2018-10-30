@@ -1,2 +1,2 @@
-from develop import IO
-from develop.timer import Timer
+from . import IO
+from .timer import Timer

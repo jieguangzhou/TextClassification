@@ -8,7 +8,7 @@ class Timer:
         self.poit[self.last_key] = self.now
 
     def cost_time(self, key=None):
-        key = key if key is not None else self.last_key
+        key = key if key is not None else '__init__'
         return self.now - self.poit[key]
 
     def mark(self, key, cost_time_key=None):

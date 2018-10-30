@@ -4,6 +4,9 @@ from text_classification.models_tf.model import BinaryClassificationModel
 
 
 class TextRNN(BinaryClassificationModel):
+    """
+    TextRNN
+    """
     def __init__(self,
                  num_units,
                  layer_num,

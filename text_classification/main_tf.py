@@ -1,9 +1,6 @@
 import tensorflow as tf
 import argparse
-from .develop.timer import Timer
-from .develop.IO import check_path
 import os
-import pickle
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -12,6 +9,9 @@ from text_classification.models_tf.textrnn import TextRNN
 from text_classification.models_tf.textcnn import TextCNN
 from text_classification.opt import *
 from text_classification.data import batch_iter, load_data
+from text_classification.develop.timer import Timer
+from text_classification.develop.IO import check_path
+from text_classification.utils import save_opt
 
 message = 'step:{0:6}, train loss:{1:6.2}, train accuarcy:{2:7.2%}, val loss :{3:6.2}, val accuary:{4:7.2%}, cost:{5}'
 
@@ -202,7 +202,7 @@ def train(opt):
     save_path = os.path.join(opt.save_path)
     tensorboard_path = os.path.join(save_path, 'tensorborad')
     check_path(save_path, create=True)
-    pickle.dump(opt, open(os.path.join(save_path, 'opt'), 'wb'))
+    save_opt(opt, save_path)
 
     saver = tf.train.Saver(max_to_keep=1)
 
